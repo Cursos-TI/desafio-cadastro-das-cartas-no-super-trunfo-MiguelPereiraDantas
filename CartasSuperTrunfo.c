@@ -14,7 +14,7 @@ typedef struct {
     float pibPerCapita; // PIB / populacao
 } Carta;
 
-// Funcao para exibir o nome do atributo
+
 const char* nomeAtributo(int attr) {
     switch(attr) {
         case 1: return "Populacao";
@@ -27,7 +27,7 @@ const char* nomeAtributo(int attr) {
     }
 }
 
-// Funcao para obter o valor numerico do atributo
+//  obter o valor numerico do atributo
 double valorAtributo(Carta c, int attr) {
     switch(attr) {
         case 1: return (double)c.populacao;
@@ -40,13 +40,13 @@ double valorAtributo(Carta c, int attr) {
     }
 }
 
-// Funcao para comparacao
+
 int comparaAtributos(int attr, double v1, double v2) {
-    if (attr == 5) { // Densidade Demografica: menor vence
+    if (attr == 5) { 
         if (v1 < v2) return 1;
         else if (v1 > v2) return 2;
         else return 0;
-    } else { // Outros: maior vence
+    } else { 
         if (v1 > v2) return 1;
         else if (v1 < v2) return 2;
         else return 0;
@@ -76,7 +76,7 @@ int main() {
     printf("Area (km2): "); scanf("%f", &c2.area);
     printf("Pontos Turisticos: "); scanf("%d", &c2.pontosTuristicos);
 
-    // Calculos automaticos
+    // Calculos 
     c1.densidade = c1.populacao / c1.area;
     c1.pibPerCapita = (c1.pib * 1e9f) / c1.populacao;
 
@@ -98,7 +98,7 @@ int main() {
         return 1;
     }
 
-    // Comparacao dos atributos escolhidos
+    // Comparacao dos atributos 
     double v1a1 = valorAtributo(c1, atr1);
     double v2a1 = valorAtributo(c2, atr1);
 
@@ -125,7 +125,7 @@ int main() {
     else
         printf(">>> Empate na soma dos atributos! <<<\n");
 
-    // Calculo e comparacao do Super Poder
+    // Super Poder
     float superPoder1 = c1.populacao + c1.pib + c1.area + c1.pontosTuristicos + (1.0f / c1.densidade) + c1.pibPerCapita;
     float superPoder2 = c2.populacao + c2.pib + c2.area + c2.pontosTuristicos + (1.0f / c2.densidade) + c2.pibPerCapita;
 
